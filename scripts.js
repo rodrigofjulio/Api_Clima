@@ -32,3 +32,32 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// Função para alterar a imagem com base na hora atual
+function alterarBackgroundPorHorario(){
+
+    //Obtém a hora atual da máquina
+    const now = new Date();
+    const hora = now.getHours();
+
+    //Seleciona o elemento da imagem pelo ID
+    const body = document.body;
+
+    //Verifica o intervalo de tempo e altera a imagem
+    if(hora >= 6 && hora < 12){
+        body.style.backgroundImage = "url('/assets/manha.jpg')"; //colocar entre '' o caminho para a imagem da manhã
+        
+    }else if(hora >= 12 && hora < 18){
+        body.style.backgroundImage = "url('/assets/tarde.jpg')"; //colocar entre '' o caminho para a imagem da tarde
+        
+    }else{
+        body.style.backgroundImage = "url('/assets/noite.jpg')"; //colocar entre '' o caminho para a imagem da noite
+        
+    }
+}
+ // Define outras prioridades do background
+ body.style.backgroundSize = "cover";
+ body.style.backgroundPosition = "center";
+
+ // Chama a função ao carregar a página
+ window.onload = alterarBackgroundPorHorario;
